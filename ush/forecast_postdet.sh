@@ -570,6 +570,7 @@ data_out_GFS() {
       fi
     elif [[ ${RUN} =~ "gfs" ]]; then
       ${NCP} "${DATA}/input.nml" "${COM_ATMOS_HISTORY}/input.nml"
+      ${NCP} "${DATA}/model_configure" "${COM_ATMOS_HISTORY}/model_configure"
     fi
   fi
 

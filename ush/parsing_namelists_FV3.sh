@@ -160,6 +160,7 @@ cat > input.nml <<EOF
   dry_mass=${dry_mass:-98320.0}
   consv_te = $consv_te
   do_sat_adj = ${do_sat_adj:-".false."}
+  fast_tau_w_sec = ${fast_tau_w_sec:-"0.2"}
   consv_am = .false.
   fill = .true.
   dwind_2d = .false.
@@ -287,6 +288,7 @@ EOF
   do_gsl_drag_ss       = ${do_gsl_drag_ss:-".true."}
   do_gsl_drag_tofd     = ${do_gsl_drag_tofd:-".true."}
   do_ugwp_v1_orog_only = ${do_ugwp_v1_orog_only:-".false."}
+  ugwp_seq_update = ${ugwp_seq_update:-".false."}
   min_lakeice  = ${min_lakeice:-"0.15"}
   min_seaice   = ${min_seaice:-"0.15"}
   use_cice_alb = ${use_cice_alb:-".false."}
@@ -463,7 +465,7 @@ if [ $knob_ugwp_version -eq 1 ]; then
   knob_ugwp_lzmin    = ${knob_ugwp_lzmin:-0.75e3}
   knob_ugwp_lzstar   = ${knob_ugwp_lzstar:-2.0e3}
   knob_ugwp_taumin   = ${knob_ugwp_taumin:-0.25e-3}
-  knob_ugwp_tauamp   = ${knob_ugwp_tauamp:-3.0e-3}
+  knob_ugwp_tauamp   = ${knob_ugwp_tauamp:-0.5e-3}
   knob_ugwp_lhmet    = ${knob_ugwp_lhmet:-200.0e3}
   knob_ugwp_orosolv  = ${knob_ugwp_orosolv:-'pss-1986'}
 /

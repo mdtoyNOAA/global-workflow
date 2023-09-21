@@ -10,11 +10,11 @@ echo "BEGIN: config.vrfy"
 
 export CDFNL="gdas"               # Scores verification against GDAS/GFS analysis
 export MKPGB4PRCP="YES"           # Make 0.25-deg pgb files in ARCDIR for precip verification
-export VRFYRAD="YES"              # Radiance data assimilation monitoring
-export VRFYOZN="YES"              # Ozone data assimilation monitoring
-export VRFYMINMON="YES"           # GSI minimization monitoring
-export VRFYTRAK="YES"             # Hurricane track verification
-export VRFYGENESIS="YES"          # Cyclone genesis verification
+export VRFYRAD="NO"               # Radiance data assimilation monitoring
+export VRFYOZN="NO"               # Ozone data assimilation monitoring
+export VRFYMINMON="NO"            # GSI minimization monitoring
+export VRFYTRAK="NO"              # Hurricane track verification
+export VRFYGENESIS="NO"           # Cyclone genesis verification
 export VRFYFSU="NO"               # Cyclone genesis verification (FSU)
 export RUNMOS="NO"                # whether to run entire MOS package
 

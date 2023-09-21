@@ -72,7 +72,7 @@ case $case_in in
         export WRTIOBUF="8M"
         ;;
     "C384")
-        export DELTIM=200
+        export DELTIM=300
         export layout_x=8
         export layout_y=8
         export layout_x_gfs=6
