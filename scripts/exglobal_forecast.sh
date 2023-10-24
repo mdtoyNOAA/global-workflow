@@ -160,13 +160,13 @@ export ERR=$?
 export err=${ERR}
 ${ERRSCRIPT} || exit "${err}"
 
-FV3_out
-[[ ${cplflx} = .true. ]] && MOM6_out
-[[ ${cplwav} = .true. ]] && WW3_out
-[[ ${cplice} = .true. ]] && CICE_out
-[[ ${cplchm} = .true. ]] && GOCART_out
-[[ ${esmf_profile:-} = .true. ]] && CPL_out
-echo "MAIN: Output copied to COMROT"
+#FV3_out
+#[[ ${cplflx} = .true. ]] && MOM6_out
+#[[ ${cplwav} = .true. ]] && WW3_out
+#[[ ${cplice} = .true. ]] && CICE_out
+#[[ ${cplchm} = .true. ]] && GOCART_out
+#[[ ${esmf_profile:-} = .true. ]] && CPL_out
+#echo "MAIN: Output copied to COMROT"
 
 #------------------------------------------------------------------
 
