@@ -62,6 +62,13 @@ class RocotoXML(ABC):
         entity['ROTDIR'] = self._base['ROTDIR']
         entity['JOBS_DIR'] = self._base['BASE_JOB']
 
+        entity['HOMEgfs'] = self._base['HOMEgfs']
+        entity['EXPDIR'] = "&HOMEgfs;/FV3GFSwfm/&PSLOT;"
+        entity['ICSDIR'] = "/scratch1/BMC/gsd-fv3/rtruns/FV3ICS_L127"
+
+        entity['CASE'] = 'C768'
+        entity['COMPONENT'] = 'atmos'
+        entity['NATIVE_STR'] = '--export=NONE'
         entity['MAXTRIES'] = self.rocoto_config['maxtries']
 
         # Put them all in an XML key-value syntax

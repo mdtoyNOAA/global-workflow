@@ -49,6 +49,7 @@ class Tasks:
         envar_dict = {'RUN_ENVIR': self._base.get('RUN_ENVIR', 'emc'),
                       'HOMEgfs': self._base.get('HOMEgfs'),
                       'EXPDIR': self._base.get('EXPDIR'),
+                      'ROTDIR': self._base.get('ROTDIR'),
                       'NET': self._base.get('NET'),
                       'CDUMP': self.cdump,
                       'RUN': self.cdump,
@@ -165,7 +166,7 @@ class Tasks:
             else:
                 native += ':shared'
         elif scheduler in ['slurm']:
-            native = '--export=NONE'
+            native = '&NATIVE_STR;'
 
         queue = task_config['QUEUE_SERVICE'] if task_name in Tasks.SERVICE_TASKS else task_config['QUEUE']
 
