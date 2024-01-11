@@ -46,6 +46,7 @@ export FCSTEXEC="ufs_model.x"
 # Model configuration
 export TYPE="nh"
 export MONO="non-mono"
+#JKHexport range_warn=".false."                  ## JKH 
 
 # Use stratosphere h2o physics
 export h2o_phys=".true."
@@ -118,8 +119,21 @@ fi
 
 # PBL/turbulance schemes
 export hybedmf=".false."
-export satmedmf=".true."
-export isatmedmf=1
+if [[ "$CCPP_SUITE" == "FV3_GFS_v17_p8_ugwpv1_mynn" || "$CCPP_SUITE" == "FV3_GFS_v17_p8_mynn" || "$CCPP_SUITE" == "FV3_GFS_v17_p8_c3_mynn" ]] ; then
+   export satmedmf=".false."
+   export isatmedmf=0
+   export shal_cnv=".false."
+   export do_mynnedmf=".true."
+   export do_mynnsfclay=".false."
+   export icloud_bl=1
+   export bl_mynn_tkeadvect=".true."
+   export bl_mynn_edmf=1
+   export bl_mynn_edmf_mom=1
+   export lcnorm=".true."                           ## JKH
+else
+   export satmedmf=".true."
+   export isatmedmf=1
+fi
 tbf=""
 if [[ "${satmedmf}" == ".true." ]]; then tbf="_satmedmf" ; fi
 
@@ -147,6 +161,32 @@ export doGP_lwscat=.false.
 export iopt_sfc="3"
 export iopt_trs="2"
 
+# Convection Options: 2-SASAS, 3-GF
+export progsigma=".true."
+if [[ "$CCPP_SUITE" == "FV3_GFS_v17_p8_c3_mynn" ]] ; then
+    export imfdeepcnv=5
+    export imfshalcnv=-1                 ## JKH - no shallow GF
+elif [[ "$CCPP_SUITE" == "FV3_GFS_v17_p8_c3" ]] ; then 
+    export progsigma=.false.
+    export imfdeepcnv=5
+    export imfshalcnv=5              
+elif [[ "$CCPP_SUITE" == "FV3_GFS_v17_p8_gf" ]] ; then 
+    export imfdeepcnv=3
+    export imfshalcnv=3              
+else
+    export imfdeepcnv=2
+    if [[ "$CCPP_SUITE" == "FV3_GFS_v17_p8_ugwpv1_mynn" || "$CCPP_SUITE" == "FV3_GFS_v17_p8_mynn" ]] ; then
+      export imfshalcnv=-1
+    else
+      export imfshalcnv=2
+    fi
+fi
+
+#Convection schemes      ### JKH  - affects field table name
+tbp=""
+if [ "$progsigma" = ".true." ]; then tbp="_progsigma" ; fi
+
+
 # Microphysics configuration
 export dnats=0
 export cal_pre=".true."
@@ -166,13 +206,20 @@ case ${imp_physics} in
         ;;
     8)  # Thompson
         export ncld=2
-        export FIELD_TABLE="${HOMEgfs}/parm/ufs/fv3/field_table_thompson_noaero_tke${tbp}"
         export nwat=6
+
+        if [[ "$CCPP_SUITE" == "FV3_GFS_v17_p8_ugwpv1_mynn" || "$CCPP_SUITE" == "FV3_GFS_v17_p8_mynn" || "$CCPP_SUITE" == "FV3_GFS_v17_p8_c3_mynn" || 
+              "$CCPP_SUITE" == "FV3_GFS_v17_p8_thompson" ]] ; then
+          export ltaerosol=".true."
+          export FIELD_TABLE="$HOMEgfs/parm/ufs/fv3/field_table_thompson_aero_tke${tbp}"
+        else
+          export ltaerosol=".false."
+          export FIELD_TABLE="${HOMEgfs}/parm/ufs/fv3/field_table_thompson_noaero_tke${tbp}"
+        fi
 
         export cal_pre=".false."
         export random_clds=".false."
         export effr_in=".true."
-        export ltaerosol=".false."
         export lradar=".true."
         export ttendlim="-999"
         export dt_inner=$((DELTIM/2))
