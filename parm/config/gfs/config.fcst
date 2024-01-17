@@ -117,7 +117,7 @@ if (( LEVS == 128 )) && [[ "${CDUMP}" =~ "gdas" ]]; then
    export d2_bg_k2=0.0
 fi
 
-# PBL/turbulance schemes
+# PBL/turbulence schemes
 export hybedmf=".false."
 if [[ "$CCPP_SUITE" == "FV3_GFS_v17_p8_ugwpv1_mynn" || "$CCPP_SUITE" == "FV3_GFS_v17_p8_mynn" || "$CCPP_SUITE" == "FV3_GFS_v17_p8_c3_mynn" ]] ; then
    export satmedmf=".false."

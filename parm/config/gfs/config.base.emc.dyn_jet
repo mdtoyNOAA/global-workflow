@@ -64,8 +64,8 @@ export DO_BUFRSND="NO"     # BUFR sounding products
 export DO_GEMPAK="NO"      # GEMPAK products
 export DO_AWIPS="NO"       # AWIPS products
 export DO_NPOESS="NO"       # NPOESS products
-export DO_TRACKER="NO"    # Hurricane track verification                 ## JKH
-export DO_GENESIS="NO"    # Cyclone genesis verification                 ## JKH
+export DO_TRACKER="YES"    # Hurricane track verification
+export DO_GENESIS="NO"    # Cyclone genesis verification            ## JKH
 export DO_GENESIS_FSU="NO" # Cyclone genesis verification (FSU)
 export DO_VERFOZN="YES"    # Ozone data assimilation monitoring
 export DO_VERFRAD="YES"    # Radiance data assimilation monitoring
@@ -258,10 +258,10 @@ export gfs_cyc=@gfs_cyc@ # 0: no GFS cycle, 1: 00Z only, 2: 00Z and 12Z only, 4:
 # GFS output and frequency
 export FHMIN_GFS=0
 
-export FHMAX_GFS_00=120
-export FHMAX_GFS_06=120
-export FHMAX_GFS_12=120
-export FHMAX_GFS_18=120
+export FHMAX_GFS_00=168             ## JKH
+export FHMAX_GFS_06=168             ## JKH
+export FHMAX_GFS_12=168             ## JKH
+export FHMAX_GFS_18=168             ## JKH
 current_fhmax_var=FHMAX_GFS_${cyc}; declare -x FHMAX_GFS=${!current_fhmax_var}
 
 export FHOUT_GFS=6 # Must be 6 for S2S until #1629 is addressed; 3 for ops
@@ -385,7 +385,7 @@ export binary_diag=".false."
 
 # Verification options
 export DO_METP="NO"          # Run METPLUS jobs - set METPLUS settings in config.metp; not supported with spack-stack
-export DO_FIT2OBS="NO"      # Run fit to observations package             ## JKH
+export DO_FIT2OBS="NO"      # Run fit to observations package         ## JKH
 
 # Archiving options
 export HPSSARCH="@HPSSARCH@"        # save data to HPSS archive
