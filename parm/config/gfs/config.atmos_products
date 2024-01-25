@@ -20,9 +20,10 @@ if [[ "${RUN:-}" == "gdas" ]]; then
   export FHOUT_PGBS=${FHOUT:-1}  # Output frequency of supplemental gfs pgb file at 1.0 and 0.5 deg
   export FLXGF="NO"  # Create interpolated sflux.1p00 file
 elif [[ "${RUN:-}" == "gfs" ]]; then
-  export downset=2
+  #JKHexport downset=2    ## create pgrb2b files
+  export downset=1        ## JKH  
   export FHOUT_PGBS=${FHOUT_GFS:-3}  # Output frequency of supplemental gfs pgb file at 1.0 and 0.5 deg
-  export FLXGF="YES"  # Create interpolated sflux.1p00 file
+  export FLXGF="NO"  # Create interpolated sflux.1p00 file
 fi
 
 # paramlist files for the different forecast hours and downsets
