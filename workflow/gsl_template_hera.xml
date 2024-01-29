@@ -9,13 +9,13 @@
 		This workflow was automatically generated at 2023-06-13 23:31:49.582810
 	-->
 	<!ENTITY PSLOT "test">
-	<!ENTITY ROTDIR "/scratch1/BMC/gsd-fv3-dev/jhender/test/gsl_ufs_dev//FV3GFSrun/mynn_16x16">
-	<!ENTITY JOBS_DIR "/scratch1/BMC/gsd-fv3-dev/Judy.K.Henderson/test/gsl_ufs_dev/jobs/rocoto">
-	<!ENTITY HOMEgfs "/scratch1/BMC/gsd-fv3-dev/Judy.K.Henderson/test/gsl_ufs_dev">
+	<!ENTITY HOMEgfs "/scratch1/BMC/gsd-fv3-dev/Judy.K.Henderson/test/dev_19may23_0fae23fa">
 	<!ENTITY EXPDIR "&HOMEgfs;/FV3GFSwfm/&PSLOT;">
-	<!ENTITY ICSDIR "/scratch1/BMC/gsd-fv3/rtruns/FV3ICS_L127">
-	<!ENTITY CASE "C768">
-	<!ENTITY COMPONENT "atmos">
+	<!ENTITY ROTDIR "&HOMEgfs;/FV3GFSrun/&PSLOT;">
+	<!ENTITY JOBS_DIR "&HOMEgfs;/jobs/rocoto">
+        <!ENTITY ICSDIR "/scratch1/BMC/gsd-fv3/rtruns/FV3ICS_L127">
+        <!ENTITY CASE     "C768">
+        <!ENTITY COMPONENT "atmos">
 	<!ENTITY NATIVE_STR "--export=NONE">
 	<!ENTITY MAXTRIES "2">
 ]>
