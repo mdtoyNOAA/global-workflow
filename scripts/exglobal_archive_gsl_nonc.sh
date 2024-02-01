@@ -9,7 +9,7 @@ source "${HOMEgfs}/ush/preamble.sh"
 # ICS are restarts and always lag INC by $assim_freq hours
 ARCHINC_CYC=${ARCH_CYC}
 ARCHICS_CYC=$((ARCH_CYC-assim_freq))
-if [ "${ARCHICS_CYC}" -lt 0 ]; then
+if [[ "${ARCHICS_CYC}" -lt 0 ]]; then
     ARCHICS_CYC=$((ARCHICS_CYC+24))
 fi
 
@@ -21,7 +21,7 @@ APREFIX="${RUN}.t${cyc}z."
 # Ignore possible spelling error (nothing is misspelled)
 # shellcheck disable=SC2153
 CDATE_MOS=${PDY}${cyc}
-if [ "${REALTIME}" = "YES" ]; then
+if [[ "${REALTIME}" = "YES" ]]; then
     CDATE_MOS=$(${NDATE} -24 "${PDY}${cyc}")
 fi
 PDY_MOS="${CDATE_MOS:0:8}"
@@ -158,7 +158,7 @@ if [[ ${HPSSARCH} = "YES" || ${LOCALARCH} = "YES" ]]; then
 
     "${HOMEgfs}/ush/hpssarch_gen.sh" "${RUN}"
     status=$?
-    if [ "${status}" -ne 0  ]; then
+    if [[ "${status}" -ne 0  ]]; then
         echo "${HOMEgfs}/ush/hpssarch_gen.sh ${RUN} failed, ABORT!"
         exit "${status}"
     fi
@@ -174,7 +174,7 @@ if [[ ${HPSSARCH} = "YES" || ${LOCALARCH} = "YES" ]]; then
 #JKH        fi
 
         #for initial conditions
-        if [ "${SAVEFCSTIC}" = "YES" ]; then
+        if [[ "${SAVEFCSTIC}" = "YES" ]]; then
             targrp_list="${targrp_list} gfs_ics"
         fi
 
@@ -216,7 +216,7 @@ if [[ ${HPSSARCH} = "YES" || ${LOCALARCH} = "YES" ]]; then
             stat_chgrp=$?
             ${HSICMD} chmod 640 "${tar_fl}"
             stat_chgrp=$((stat_chgrp+$?))
-            if [ "${stat_chgrp}" -gt 0 ]; then
+            if [[ "${stat_chgrp}" -gt 0 ]]; then
                 echo "FATAL ERROR: Unable to properly restrict ${tar_fl}!"
                 echo "Attempting to delete ${tar_fl}"
                 ${HSICMD} rm "${tar_fl}"
