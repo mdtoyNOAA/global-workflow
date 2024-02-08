@@ -33,7 +33,9 @@ PDY_MOS="${CDATE_MOS:0:8}"
 #JKH
 #JKH[[ ! -d ${ARCDIR} ]] && mkdir -p "${ARCDIR}"
 #JKHnb_copy "${COM_ATMOS_ANALYSIS}/${APREFIX}gsistat" "${ARCDIR}/gsistat.${RUN}.${PDY}${cyc}"
-#JKHnb_copy "${COM_CHEM_ANALYSIS}/${APREFIX}aerostat" "${ARCDIR}/aerostat.${RUN}.${PDY}${cyc}"
+#JKHif [[ ${DO_AERO} = "YES" ]]; then
+#JKH   nb_copy "${COM_CHEM_ANALYSIS}/${APREFIX}aerostat" "${ARCDIR}/aerostat.${RUN}.${PDY}${cyc}"
+#JKHfi
 #JKHnb_copy "${COM_ATMOS_GRIB_1p00}/${APREFIX}pgrb2.1p00.anl" "${ARCDIR}/pgbanl.${RUN}.${PDY}${cyc}.grib2"
 #JKH
 #JKH# Archive 1 degree forecast GRIB2 files for verification
