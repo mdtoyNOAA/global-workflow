@@ -1,3 +1,4 @@
+#!/bin/sh
 USER=Judy.K.Henderson
 GITDIR=/scratch1/BMC/gsd-fv3-dev/jhender/test/gsl_ufs_dev/            ## where your git checkout is located
 COMROT=$GITDIR/FV3GFSrun                                         ## default COMROT directory
