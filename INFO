@@ -1,3 +1,14 @@
+03-12-24
+========
+   12Jan24 global-workflow
+   UFS: 29Jan24, 625ac02
+   FV3: 29Jan24, bd38c56
+   UPP: 07Nov23, 78f369b
+   UFS_UTILS: 22Dev23, ce385ce
+
+   update pointers for ufs_model and ufs_utils
+   add GSL C3_MYNN xml suite
+   Change dt_inner=75 for any configuration running aerosol-aware Thompson (ltaerosol=.true.)
 
 02-13-24
 ========
