@@ -1,6 +1,7 @@
 [submodule "sorc/ufs_model.fd"]
 	path = sorc/ufs_model.fd
-	url = https://github.com/NOAA-GSL/ufs-weather-model
+	url = https://github.com/mdtoyNOAA/ufs-weather-model
+        branch = global-workflow_mod_ugwp_fd
 	ignore = dirty
 [submodule "sorc/wxflow"]
 	path = sorc/wxflow
