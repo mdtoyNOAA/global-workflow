@@ -461,6 +461,7 @@ FV3_predet() {
         cpreq "${FIXorog}/${CASE}/${CASE}_grid.tile${tt}.nc" "${DATA}/INPUT/${CASE}_grid.tile${tt}.nc"
         cpreq "${FIXugwd}/${CASE}/${CASE}_oro_data_ls.tile${tt}.nc" "${DATA}/INPUT/oro_data_ls.tile${tt}.nc"
         cpreq "${FIXugwd}/${CASE}/${CASE}_oro_data_ss.tile${tt}.nc" "${DATA}/INPUT/oro_data_ss.tile${tt}.nc"
+        cpreq "${FIXugwd}/${CASE}/${CASE}_new_oro_data.tile${tt}.nc" "${DATA}/INPUT/new_oro_data.tile${tt}.nc"
     done
     if [[ "${DO_NEST:-NO}" == "YES" ]]; then
         ${NLN} "${DATA}/INPUT/oro_data.tile7.nc" "${DATA}/INPUT/oro_data.nest02.tile7.nc"
@@ -468,6 +469,7 @@ FV3_predet() {
         ${NLN} "${DATA}/INPUT/${CASE}_grid.tile7.nc" "${DATA}/INPUT/grid.nest02.tile7.nc"
         ${NLN} "${DATA}/INPUT/oro_data_ls.tile7.nc" "${DATA}/INPUT/oro_data_ls.nest02.tile7.nc"
         ${NLN} "${DATA}/INPUT/oro_data_ss.tile7.nc" "${DATA}/INPUT/oro_data_ss.nest02.tile7.nc"
+        ${NLN} "${DATA}/INPUT/new_oro_data.tile7.nc" "${DATA}/INPUT/new_oro_data.nest02.tile7.nc"
     fi
 
     # NoahMP table

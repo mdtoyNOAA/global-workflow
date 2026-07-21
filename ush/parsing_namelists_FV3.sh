@@ -200,6 +200,7 @@ FV3_namelists() {
     local DO_UGWP_V0_OROG_ONLY=${do_ugwp_v0_orog_only:-".false."}
     local DO_UGWP_V0_NST_ONLY=${do_ugwp_v0_nst_only:-".false."}
     local DO_GSL_DRAG_LS_BL=${do_gsl_drag_ls_bl:-".true."}
+    local DO_FOURIER_DRAG_LS_BL=${do_fourier_drag_ls_bl:-".false."}
     local DO_GSL_DRAG_SS=${do_gsl_drag_ss:-".true."}
     local DO_GSL_DRAG_TOFD=${do_gsl_drag_tofd:-".true."}
     local DO_GWD_OPT_PSL=${do_gwd_opt_psl:-".false."}
@@ -244,6 +245,7 @@ FV3_namelists() {
     local RAS=${ras:-".false."}
     local CDMBGWD=${cdmbgwd:-"3.5,0.25"}
     local PSL_GWD_DX_FACTOR=${psl_gwd_dx_factor:-"6.0"}
+    local ALPHA_FD=${alpha_fd:-"12.0"}
     local PRSLRD0=${prslrd0:-"0."}
     local IVEGSRC=${ivegsrc:-"1"}
     local ISOT=${isot:-"1"}
